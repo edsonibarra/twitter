@@ -1,16 +1,21 @@
 import React from 'react';
 import {HeartOutline, ShareOutline, ChatOutline, DotsHorizontalOutline, TrashOutline} from '@graywolfai/react-heroicons';
 import './styles.css';
+import {feed} from '../../source'
 
 class Tweet extends React.Component{
-    
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-
+            retweets : feed.interaction.retweets
         }
     }
-
+    handleClickRT = () => { 
+        this.setState({
+            retweets: this.state.retweets + 1
+        })
+    }
+    
     render(){
         return (
             <div className="tweet-container">
@@ -43,15 +48,15 @@ class Tweet extends React.Component{
                 <div className="reactions">
                     <div className="comments">
                         <ChatOutline />
-                        <span>{this.props.reactions.comments}</span>
+                        <span>{this.props.reactions.comments > 1000 ? (this.props.reactions.comments / 1000) + 'K': this.props.reactions.comments} </span>
                     </div>
                     <div className="retweets" onClick={this.handleClickRT}>
                         <ShareOutline />
-                        <span>{this.props.reactions.retweets}</span>
+                        <span>{this.props.reactions.retweets > 1000 ? (this.props.reactions.retweets/1000) + 'K': this.props.reactions.retweets }</span>
                     </div>
                     <div className="likes" likes onClick={this.handleClickLike}>
                         <HeartOutline />
-                        <span>{this.props.reactions.likes}</span>
+                        <span>{this.props.reactions.likes > 1000 ? (this.props.reactions.likes / 1000) + 'K': this.props.reactions.likes}</span>
                     </div>
                 </div>
             </div>

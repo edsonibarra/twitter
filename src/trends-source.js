@@ -42,6 +42,4 @@ const trends = [
        
 ];
 
-export {
-    trends
-}
+export {trends}

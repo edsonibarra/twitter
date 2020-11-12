@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.trend-container{
+    display: flex;
+    /* border: .5px solid; */
+    padding: 10px;
+    background-color: rgb(180, 180, 180);
+    text-align: left;
+}
+.trend-container_image{
+    display: flex;
+    align-items: center;
+}
+.trend-container:hover{
+    background-color: rgb(154, 203, 236);
+    cursor: pointer;
+}
